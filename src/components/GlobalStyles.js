@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     *{
@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
 
     body{
         background: #1b1b1b;
+        font-family: 'Inter', sans-serif;
     }
 
     button{
@@ -19,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
         border: 3px solid #23d997;
         background: transparent;
         color: white;
+        font-family: 'Inter', sans-serif;
         transition: all 0.5s ease;
         &:hover{
             background-color: #23d997;
@@ -48,6 +50,6 @@ const GlobalStyle = createGlobalStyle`
             font-size: 1.4rem;
             line-height: 150%;
         }
-`
+`;
 
 export default GlobalStyle;
