@@ -7,7 +7,7 @@ const Nav = () => {
     <StyledNav>
       <h1>
         <Link id="logo" to="/">
-          Jose Alonso
+          Josè Alonso
         </Link>
       </h1>
       <ul>
