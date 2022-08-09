@@ -1,6 +1,10 @@
 import React from "react";
 import { About, Description, Image } from "../styles";
 import styled from "styled-components";
+
+//Framer Motion
+import {motion} from "framer-motion";
+import { photoAnimation } from "../animation";
 //Import Icons
 import clock from "../img/clock.svg";
 import diaphragm from "../img/diaphragm.svg";
@@ -47,7 +51,7 @@ const ServicesSection = () => {
         </Cards>
       </Description>
       <Image>
-        <img src={homeImg2} alt="camera" />
+        <motion.img variants={photoAnimation} src={homeImg2} alt="camera" ></motion.img>
       </Image>
     </Services>
   );
