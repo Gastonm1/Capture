@@ -13,10 +13,15 @@ import {
   pageAnimation,
   photoAnimation,
   slider,
-  sliderContainer
+  sliderContainer,
 } from "../animation";
+//Custom Hook
+import { useScroll } from "../components/useScroll";
 
 const OurWork = () => {
+  const [controls, element] = useScroll();
+  const [controls1, element1] = useScroll();
+  const [controls2, element2] = useScroll();
   return (
     <Work
       animate="show"
@@ -26,13 +31,13 @@ const OurWork = () => {
       variants={pageAnimation}
     >
       <motion.div variants={sliderContainer}>
-      <Frame1 variants={slider}></Frame1>
-      <Frame2 variants={slider}></Frame2>
-      <Frame3 variants={slider}></Frame3>
-      <Frame4 variants={slider}></Frame4>
+        <Frame1 variants={slider}></Frame1>
+        <Frame2 variants={slider}></Frame2>
+        <Frame3 variants={slider}></Frame3>
+        <Frame4 variants={slider}></Frame4>
       </motion.div>
       {/* First Photo */}
-      <Movie>
+      <Movie ref={element} variants={fade} animate={controls} initial="hidden">
         <motion.h2 variants={fade}>The Athlete</motion.h2>
         <motion.div
           variants={lineExtendAnimation}
@@ -49,19 +54,43 @@ const OurWork = () => {
         </Link>
       </Movie>
       {/* Second Photo*/}
-      <Movie>
+      <Movie
+        ref={element1}
+        variants={fade}
+        animate={controls1}
+        initial="hidden"
+      >
         <motion.h2 variants={fade}>The Racer</motion.h2>
-        <div className="line"></div>
+        <motion.div
+          variants={lineExtendAnimation}
+          className="line"
+        ></motion.div>
         <Link to="/work/the-racer">
-          <img src={theracer} alt="TheRacer"></img>
+          <motion.img
+            variants={photoAnimation}
+            src={theracer}
+            alt="TheRacer"
+          ></motion.img>
         </Link>
       </Movie>
       {/* Third Photo*/}
-      <Movie>
-        <h2>Good Times</h2>
-        <div className="line"></div>
+      <Movie
+        ref={element2}
+        variants={fade}
+        animate={controls2}
+        initial="hidden"
+      >
+        <motion.h2 variants={fade}>Good Times</motion.h2>
+        <motion.div
+          variants={lineExtendAnimation}
+          className="line"
+        ></motion.div>
         <Link to="/work/good-times">
-          <img src={goodtimes} alt="GoodTimes"></img>
+          <motion.img
+            variants={photoAnimation}
+            src={goodtimes}
+            alt="GoodTimes"
+          ></motion.img>
         </Link>
       </Movie>
     </Work>
@@ -77,7 +106,7 @@ const Work = styled(motion.div)`
   }
 `;
 
-const Movie = styled.div`
+const Movie = styled(motion.div)`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
