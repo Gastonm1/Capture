@@ -39,6 +39,9 @@ const StyledNav = styled.nav`
   align-items: center;
   background: #282828;
   padding: 1rem 10rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
   .link {
     color: white;
     text-decoration: none;
