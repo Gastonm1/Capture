@@ -6,8 +6,6 @@ import FaqSection from "../components/FaqSection";
 //Framer Motion
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
-// Custom Hooks
-import ScrollTop from "./components/ScrollTop";
 
 const AboutUs = () => {
   return (
@@ -17,7 +15,6 @@ const AboutUs = () => {
       initial="hidden"
       animate="show"
     >
-      <ScrollTop />
       <AboutSection />
       <ServiceSection />
       <FaqSection />

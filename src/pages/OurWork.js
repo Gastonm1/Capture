@@ -17,7 +17,8 @@ import {
 } from "../animation";
 //Custom Hook
 import { useScroll } from "../components/useScroll";
-import ScrollTop from "./components/ScrollTop";
+
+
 
 const OurWork = () => {
   const [controls, element] = useScroll();
@@ -31,7 +32,6 @@ const OurWork = () => {
       style={{ background: "#fff" }}
       variants={pageAnimation}
     >
-      <ScrollTop />
       <motion.div variants={sliderContainer}>
         <Frame1 variants={slider}></Frame1>
         <Frame2 variants={slider}></Frame2>

@@ -12,6 +12,8 @@ import MovieDetail from "./pages/MovieDetail";
 import Nav from "./components/Nav";
 //Framer Motion
 import { AnimatePresence } from "framer-motion";
+//Custom Hooks
+import ScrollTop from "./components/ScrollTop";
 
 function App() {
   const location = useLocation();
@@ -20,6 +22,7 @@ function App() {
       <GlobalStyle />
       <Nav />
       <AnimatePresence exitBeforeEnter>
+        <ScrollTop />
         <Routes location={location} key={location.pathname}>
           <Route path="/" exact element={<AboutUs />} />
           <Route path="/about" exact element={<AboutUs />} />
