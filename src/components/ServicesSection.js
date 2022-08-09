@@ -1,20 +1,30 @@
 import React from "react";
+
+//Styles
 import { About, Description, Image } from "../styles";
 import styled from "styled-components";
 
 //Framer Motion
-import {motion} from "framer-motion";
-import { photoAnimation } from "../animation";
+import { motion } from "framer-motion";
+import { scrollReveal, fade, photoAnimation } from "../animation";
 //Import Icons
 import clock from "../img/clock.svg";
 import diaphragm from "../img/diaphragm.svg";
 import money from "../img/money.svg";
 import teamwork from "../img/teamwork.svg";
 import homeImg2 from "../img/home2.png";
+//Custom Hook
+import { useScroll } from "./useScroll";
 
 const ServicesSection = () => {
+  const [controls, element] = useScroll();
   return (
-    <Services>
+    <Services
+      animate={controls}
+      initial="hidden"
+      ref={element}
+      variants={scrollReveal}
+    >
       <Description>
         <h2>
           High <span>quality</span> services.
@@ -51,7 +61,7 @@ const ServicesSection = () => {
         </Cards>
       </Description>
       <Image>
-        <motion.img variants={photoAnimation} src={homeImg2} alt="camera" ></motion.img>
+        <img src={homeImg2} alt="camera"></img>
       </Image>
     </Services>
   );
