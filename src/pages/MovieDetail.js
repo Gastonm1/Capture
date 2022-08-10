@@ -5,6 +5,8 @@ import { MovieState } from "../movieState";
 //Framer Motion
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
+//Custom Hooks
+import ScrollTop from "../components/ScrollTop";
 
 const MovieDetail = () => {
   const url = useLocation();
@@ -22,6 +24,7 @@ const MovieDetail = () => {
 
   return (
     <>
+      <ScrollTop />
       {movie && (
         <Details
           exit="exit"
@@ -58,6 +61,12 @@ const Headline = styled.div`
   min-height: 90vh;
   padding-top: 20vh;
   position: relative;
+  //Mobile
+  @media (max-width: 1500px) {
+    h2 {
+      font-size: 2.75rem;
+    }
+  }
   h2 {
     position: absolute;
     top: 10%;
@@ -66,7 +75,7 @@ const Headline = styled.div`
   }
   img {
     width: 100%;
-    height: 80vh;
+    height: 70vh;
     object-fit: cover;
   }
 `;
@@ -77,6 +86,11 @@ const Awards = styled.div`
   margin: 5rem 10rem;
   align-items: center;
   justify-content: space-around;
+  //Mobile
+  @media (max-width: 1500px) {
+    display: block;
+    margin: 2rem 2rem;
+  }
 `;
 
 const AwardStyle = styled.div`
